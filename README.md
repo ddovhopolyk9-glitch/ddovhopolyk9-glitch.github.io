@@ -1,1 +1,260 @@
 # ddovhopolyk9-glitch.github.io
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walk Magazine</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            height: 100vh;
+            background-color: #0d0d0d;
+            color: #ffffff;
+            font-family: 'Cinzel', serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Хедер / Шапка сайту */
+        header {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 25px 15px 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 10;
+        }
+
+        header .logo {
+            font-size: 1.8rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        /* Тонке геометричне меню (три лінії) */
+        header .menu-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 28px;
+            height: 14px;
+            cursor: pointer;
+        }
+
+        header .menu-icon span {
+            display: block;
+            width: 100%;
+            height: 1px; /* Дуже тонка лінія */
+            background-color: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        /* Головний контент по центру */
+        .main-container {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px 25px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            z-index: 5;
+        }
+
+        /* Рамка для фото */
+        .photo-frame {
+            width: 100%;
+            max-width: 450px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0px;
+            margin-bottom: 25px;
+            background-color: #000000;
+            line-height: 0;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            /* Якщо захочеш додати легкий блюр прямо кодом, розкоментуй рядок нижче: */
+            /* filter: blur(2px); */
+        }
+
+        /* Текстові блоки */
+        .title-couture {
+            font-size: 1.1rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 6px;
+            color: #ffffff;
+        }
+
+        .subtitle-dev {
+            font-size: 0.65rem;
+            color: #666666;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 45px;
+        }
+
+        /* Виправлений трирядковий маніфест */
+        .manifesto {
+            font-size: 0.85rem;
+            color: #cccccc;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            line-height: 2.2;
+            margin-bottom: 40px;
+        }
+
+        /* Посилання на закритий ТГ */
+        .tg-link {
+            font-size: 0.8rem;
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            transition: color 0.3s ease, letter-spacing 0.3s ease;
+            padding: 10px;
+        }
+
+        .tg-link:hover {
+            color: #888888;
+            letter-spacing: 4px;
+        }
+
+        /* Футер (Соцмережі та 18+) */
+        footer {
+            width: 100%;
+            max-width: 600px;
+            padding: 15px 25px 30px 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            z-index: 10;
+        }
+
+        /* Блок іконок з Carrd (адаптовані, монохромні) */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px; /* Заокруглені квадрати, як на скріншоті */
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            border-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .social-icons svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        /* Обмеження 18+ */
+        .age-restriction {
+            font-size: 0.55rem;
+            color: rgba(255, 255, 255, 0.3);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* Адаптація під маленькі екрани (смартфони) */
+        @media (max-width: 480px) {
+            header .logo { font-size: 1.5rem; }
+            .title-couture { font-size: 0.95rem; }
+            .manifesto { font-size: 0.75rem; line-height: 2; }
+            .photo-frame { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Walk</div>
+        <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <div class="photo-frame">
+            <img src="3639.jpg" alt="Couture Preview">
+        </div>
+
+        <div class="title-couture">New Age of Couture</div>
+        <div class="subtitle-dev">In development...</div>
+
+        <div class="manifesto">
+            Follow us to the<br>
+            best side of fashion...<br>
+            [Request Access]
+        </div>
+
+        <a href="https://t.me/+MSw_fClsdudmNzgy" target="_blank" class="tg-link">Private Telegram</a>
+    </div>
+
+    <footer>
+        <div class="social-icons">
+            <a href="https://x.com/Walknoir" target="_blank">
+                <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/walkthemagazine" target="_blank">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/share/191fm4Vb2Z/" target="_blank">
+                <svg viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+            </a>
+            <a href="tiktok.com/@walk.magazine" target="_blank">
+                <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31.01 2.61.17 3.86.48v3.56c-.88-.28-1.8-.42-2.72-.42h-.61v5.14c2.11-.19 4.14.71 5.37 2.41.92 1.27 1.25 2.87.93 4.41c-.32 1.54-1.26 2.88-2.61 3.67c-1.42.83-3.13 1.03-4.7.54c-1.57-.49-2.88-1.63-3.56-3.13c-.77-1.71-.63-3.69.38-5.28c.7-.1.1.1 0 0V.02h3.06zm4.82 3.1c.36 1.14 1.15 2.09 2.2 2.67v3.08c-1.65-.18-3.14-.99-4.1-2.28c-.37-.5-.65-1.06-.83-1.65l2.73-1.82z"/></svg>
+            </a>
+        </div>
+
+        <div class="age-restriction">
+            Walk Editorial © 2026. Content intended for<br>mature audiences (18+)
+        </div>
+    </footer>
+
+</body>
+</html>
