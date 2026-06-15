@@ -49,7 +49,6 @@
             letter-spacing: 4px;
         }
 
-        /* Тонке геометричне меню (три лінії) */
         header .menu-icon {
             display: flex;
             flex-direction: column;
@@ -62,12 +61,12 @@
         header .menu-icon span {
             display: block;
             width: 100%;
-            height: 1px; /* Дуже тонка лінія */
+            height: 1px;
             background-color: #ffffff;
             transition: all 0.3s ease;
         }
 
-        /* Головний контент по центру */
+        /* Головний контент */
         .main-container {
             width: 100%;
             max-width: 600px;
@@ -81,26 +80,27 @@
             z-index: 5;
         }
 
-        /* Рамка для фото */
-        .photo-frame {
-            width: 100%;
-            max-width: 450px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 0px;
-            margin-bottom: 25px;
-            background-color: #000000;
-            line-height: 0;
+        /* Блок для розмитого фото */
+        .photo-container {
+            width: 85%;
+            max-width: 600px;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            margin: 0 auto 25px auto;
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
 
-        .photo-frame img {
+        .photo-container img {
             width: 100%;
-            height: auto;
+            height: 100%;
             object-fit: cover;
-            /* Якщо захочеш додати легкий блюр прямо кодом, розкоментуй рядок нижче: */
-            /* filter: blur(2px); */
+            object-position: top center;
+            filter: blur(8px);
+            transform: scale(1.05);
         }
 
-        /* Текстові блоки */
+        /* Тексти */
         .title-couture {
             font-size: 1.1rem;
             font-weight: 400;
@@ -118,7 +118,6 @@
             margin-bottom: 45px;
         }
 
-        /* Виправлений трирядковий маніфест */
         .manifesto {
             font-size: 0.85rem;
             color: #cccccc;
@@ -128,23 +127,18 @@
             margin-bottom: 40px;
         }
 
-        /* Посилання на закритий ТГ */
-        .tg-link {
-            font-size: 0.8rem;
+        /* Біле посилання для Request Access */
+        .manifesto a {
             color: #ffffff;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            transition: color 0.3s ease, letter-spacing 0.3s ease;
-            padding: 10px;
+            text-decoration: underline;
+            transition: color 0.3s ease;
         }
 
-        .tg-link:hover {
-            color: #888888;
-            letter-spacing: 4px;
+        .manifesto a:hover {
+            color: #aaaaaa;
         }
 
-        /* Футер (Соцмережі та 18+) */
+        /* Футер та іконки */
         footer {
             width: 100%;
             max-width: 600px;
@@ -152,43 +146,54 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
             z-index: 10;
         }
 
-        /* Блок іконок з Carrd (адаптовані, монохромні) */
+        .private-tg {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #ffffff;
+            text-decoration: none;
+            margin-bottom: 30px;
+            transition: color 0.3s ease;
+        }
+
+        .private-tg:hover {
+            color: #aaaaaa;
+        }
+
         .social-icons {
             display: flex;
             justify-content: center;
             gap: 20px;
+            margin-bottom: 20px;
         }
 
         .social-icons a {
             display: flex;
-            align-items: center;
             justify-content: center;
-            width: 38px;
-            height: 38px;
+            align-items: center;
+            width: 42px;
+            height: 42px;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 8px; /* Заокруглені квадрати, як на скріншоті */
+            border-radius: 8px;
             color: #ffffff;
-            text-decoration: none;
             transition: all 0.3s ease;
         }
 
         .social-icons a:hover {
-            border-color: #ffffff;
             background-color: rgba(255, 255, 255, 0.05);
             transform: translateY(-2px);
         }
 
+        /* Рівні розміри для всіх іконок, включаючи ТікТок */
         .social-icons svg {
             width: 18px;
             height: 18px;
             fill: currentColor;
         }
 
-        /* Обмеження 18+ */
         .age-restriction {
             font-size: 0.55rem;
             color: rgba(255, 255, 255, 0.3);
@@ -198,48 +203,12 @@
             line-height: 1.6;
         }
 
-        /* Адаптація під маленькі екрани (смартфони) */
         @media (max-width: 480px) {
             header .logo { font-size: 1.5rem; }
             .title-couture { font-size: 0.95rem; }
-            .manifesto { font-size: 0.75rem; line-height: 2; }
-            .photo-frame { max-width: 100%; }
+            .manifesto { font-size: 0.75rem; line-height: 2.0; }
+            .photo-container { width: 90%; }
         }
-                .photo-container {
-            width: 80%;
-            max-width: 600px;
-            aspect-ratio: 16 / 9;
-            overflow: hidden;
-            margin: 0 auto 20px auto;
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        }
-        .photo-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: top center;
-            filter: blur(8px);
-            transform: scale(1.05);
-        }
-              .photo-container {
-            width: 85%;
-            max-width: 600px;
-            aspect-ratio: 16 / 9;
-            overflow: hidden;
-            margin: 20px auto;
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        }
-        .photo-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: top center;
-            filter: blur(8px);
-            transform: scale(1.05);
-        }
-        
     </style>
 </head>
 <body>
@@ -253,56 +222,29 @@
         </div>
     </header>
 
-        <div class="main-container">
-    
-    <div class="photo-container">
-        <img src="71e6ccb62700b8dac2a190790d6aeff5.webp.jpg" alt="Walk Magazine Visual Mockup">
-    </div>
-
-    <div class="title-couture">New Age of Couture</div>
-    <div class="subtitle-dev">In development...</div>
-
-    <div class="manifesto">
-        Follow us to the<br>
-        best side of fashion...<br>
-        <a href="mailto:walkmagazine26@gmail.com">Request Access</a>
-    </div>
-
+    <div class="main-container">
+        
+        <div class="photo-container">
+            <img src="71e6ccb62700b8dac2a190790d6aeff5.webp.jpg" alt="Walk Magazine Visual Mockup">
         </div>
-        
-            </div>
-        
+
+        <div class="title-couture">New Age of Couture</div>
+        <div class="subtitle-dev">In development...</div>
 
         <div class="manifesto">
             Follow us to the<br>
             best side of fashion...<br>
             <a href="mailto:walkmagazine26@gmail.com">Request Access</a>
-            
         </div>
-
-        <a href="https://t.me/+MSw_fClsdudmNzgy" target="_blank" class="tg-link">Private Telegram</a>
     </div>
 
     <footer>
+        <a href="https://t.me/+MSw_fClsdudmNzgy" class="private-tg">Private Telegram</a>
+        
         <div class="social-icons">
             <a href="https://x.com/Walknoir" target="_blank">
                 <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
-            <a href="https://www.instagram.com/walkthemagazine" target="_blank">
-                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            </a>
-            <a href="https://www.facebook.com/share/191fm4Vb2Z/" target="_blank">
-                <svg viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
-            </a>
-            <a href="https:tiktok.com/@walk.magazine" target="_blank">
-                <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31.01 2.61.17 3.86.48v3.56c-.88-.28-1.8-.42-2.72-.42h-.61v5.14c2.11-.19 4.14.71 5.37 2.41.92 1.27 1.25 2.87.93 4.41c-.32 1.54-1.26 2.88-2.61 3.67c-1.42.83-3.13 1.03-4.7.54c-1.57-.49-2.88-1.63-3.56-3.13c-.77-1.71-.63-3.69.38-5.28c.7-.1.1.1 0 0V.02h3.06zm4.82 3.1c.36 1.14 1.15 2.09 2.2 2.67v3.08c-1.65-.18-3.14-.99-4.1-2.28c-.37-.5-.65-1.06-.83-1.65l2.73-1.82z"/></svg>
-            </a>
-        </div>
-
-        <div class="age-restriction">
-            Walk Editorial © 2026. Content intended for<br>mature audiences (18+)
-        </div>
-    </footer>
-
-</body>
-</html>
+            <a href="https://instagram.com" target="_blank">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.0
+                                             
